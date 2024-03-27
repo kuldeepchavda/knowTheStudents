@@ -1,0 +1,19 @@
+			HOME
+Welcome to our Interviewer-Student Placement Platform. Discover tailored profiles and resources for streamlined recruitment. Elevate your placement process with us.
+
+			ABOUT US
+Welcome to our professional platform connecting interviewers with students for placements. Explore detailed profiles and resources for seamless recruitment. Join us today for efficient and effective placement processes.
+
+
+			SIGN UP
+		name
+		email
+		phone
+		college
+		branch
+		work of interest
+		describe yourself
+		achievements
+
+        //photo
+			
