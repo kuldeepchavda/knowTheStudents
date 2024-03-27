@@ -1,16 +1,14 @@
 "use  client";
 import img from "./homeImg.png";
 import Image from "next/image";
-import Footer from "@/components/Footer/Footer";
 export default function Home() {
   const homeTextChild = "m-3 md:m-5";
 
-  
   return (
-    <>    
-      <div className=" w-screen h-screen   flex justify-between flex-col text-black ">
+    <>
+      <div className=" w-screen h-screen flex justify-between flex-col text-black ">
         <div className=" flex w-11/12 mx-auto flex-col items-start content-center py-20  md:flex-row ">
-          <div className="homeText w-5/6 flex flex-col items-start  content-start  ">
+          <div className="homeText w-5/6 flex flex-col items-start  content-start">
             <h1
               className={`${homeTextChild} text-2xl font-bold tracking-wide py-3 md:text-4xl`}
             >
@@ -25,11 +23,11 @@ export default function Home() {
               Elevate your placement process.
             </p>
           </div>
-          <div className="homeImg w-full h-fit">
+          <div className="relative -z-10 w-full h-fit">
             <Image src={img} className="w-5/6 mx-auto" alt="searching" />
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

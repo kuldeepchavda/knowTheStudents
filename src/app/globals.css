@@ -19,10 +19,3 @@ body {
   height: 100vh;
   /* background: #003e5d; */
 }
-
-.inputStyles{
-  border-bottom:  1px solid black;
-}
-.signupForm button{
-  border: 1px solid black;
-}
