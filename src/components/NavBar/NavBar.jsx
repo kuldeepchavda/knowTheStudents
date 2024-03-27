@@ -32,7 +32,7 @@ export default function Navbar() {
             </button>
 
           </div>
-          <div className={`${nav ? "fixed bg-white right-0 shadow-md h-screen w-1/2" : "hidden"} md:block w-screen`}>
+          <div className={`${nav ? "fixed bg-white right-0 shadow-md h-screen w-1/2" : "hidden"} md:block`}>
             <ul className={`${nav? "pt-20": ""} flex flex-col w-full gap-3 md:flex-row md:w-fit md:ml-auto mr-3`}>
               <li onClick={closeNav} className={navListItems}>
                 <Link href="/">Home</Link>
