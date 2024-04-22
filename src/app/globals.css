@@ -15,7 +15,11 @@ body {
   background-size: cover; */
   background: radial-gradient(#ffffff,#fcfdff);
   background-repeat: no-repeat;
-  color: antiquewhite;
+
   height: 100vh;
   /* background: #003e5d; */
+}
+
+.toastBody{
+    font-size: 1.1rem;
 }

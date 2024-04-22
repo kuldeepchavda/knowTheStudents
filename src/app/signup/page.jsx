@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from "react";
+import {toast} from "react-toastify"
 // import img from "./signup.webp";
 export default function aboutus() {
   const [registration, setRegistration] = useState({
@@ -25,14 +26,19 @@ export default function aboutus() {
     e.preventDefault();
     try {
 
-      const response = await fetch(`http://localhost:8080/registration`, {
+      const response = await fetch(`http://localhost:8080/authorizations/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(registration),
       });
-     alert("message sent successfully")
+      const result = await response.json()
+      if(response.ok){
+       alert("Registered Successfully.")
+    }else{
+      alert(result.extraDetails);
+     }
     } catch (error) {
       console.log("there was an error")
     }
@@ -59,7 +65,7 @@ export default function aboutus() {
             name="lastname"
             id="lastname"
             type="text"
-            placeholder="Name"
+            placeholder="Last Name"
           />
           <input
             onChange={handleChange}
