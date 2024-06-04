@@ -95,8 +95,7 @@ export const AuthProvider = ({ children }) => {
         logoutUser,
         userAuthentication,
         user,
-        setUser,
-
+        setUser, 
         contacts,
         setIsLoggedIn,
         users,

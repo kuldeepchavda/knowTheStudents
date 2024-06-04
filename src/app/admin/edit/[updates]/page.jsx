@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/app/store/auth";
 
 export default function updateUser({ params }) {
-  const { authenticatedToken } = useAuth();
+  const { authenticatedToken, getAllTheUsersData } = useAuth();
   const id = params.updates;
-  const [editingUserData, setEditingUserData] = useState({});
-  const [updatingRes, setUpdatingRes] = useState({});
+  const [editingUserData, setEditingUserData] = useState("");
 
   const getDataById = async () => {
     try {
@@ -34,11 +33,12 @@ export default function updateUser({ params }) {
   }, []);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setEditingUserData({
       ...editingUserData,
       [name]: value,
     });
+    console.log(editingUserData)
   };
   // const handleSubmit = async()=>{
   //   try {
@@ -52,7 +52,6 @@ export default function updateUser({ params }) {
   const handleSubmit = async (e)=>{
     e.preventDefault()
     try {
-      
       const response = await fetch(
         `http://localhost:8080/admin/users/update/${id}`,
         {
@@ -66,13 +65,14 @@ export default function updateUser({ params }) {
       );
       if(response.ok){
     const resData = await response.json()
-    console.log(resData)
+    console.log(resData.message)
+    getAllTheUsersData()
 
       }else{
         alert("got an error")
       }
     } catch (error) {
-      
+      console.log(error)
     }
     console.log(editingUserData)
   }
@@ -86,10 +86,7 @@ export default function updateUser({ params }) {
       <h1 className="text-black mt-5 mb-2 ml-10 text-xl">
         Editing {editingUserData._id}
       </h1>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col w-1/3 mx-auto h-3/4"
-      >
+      <form   className="flex flex-col w-1/3 mx-auto h-3/4">
         <label htmlFor="firstname" className={formStyles.labels}>
           First Name
         </label>
@@ -166,13 +163,16 @@ export default function updateUser({ params }) {
           className={formStyles.inputs}
         />
         <button
-          className="border border-black rounded-lg w-fit mx-auto mt-5"
-          type="submit"
+          onClick={handleSubmit}
+          className=" py-2 px-4 text-zinc-900 rounded-lg border border-gray-700 w-fit mx-auto mt-5"
+          // type="submit"
         >
-          <Link href="/explore" className="w-full h-full px-3 py-2">Sign In</Link>
+          <Link href="/admin/admin-users" className="w-full h-full px-3 py-2">
+            Update
+          </Link>
         </button>
       </form>
-      {/* <h1>{id}</h1> */}
+      <h1>{id}</h1>
     </div>
   );
 }

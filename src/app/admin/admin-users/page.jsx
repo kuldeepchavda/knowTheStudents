@@ -3,38 +3,37 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/app/store/auth";
 export default function AdminUserData() {
-  const [showNav ,setShowNav ] = useState(false)
-  function setNav(){
-    setShowNav(!showNav)
+  const [showNav, setShowNav] = useState(false);
+  function setNav() {
+    setShowNav(!showNav);
   }
   const { authenticatedToken, contacts, getAllTheUsersData, users } = useAuth();
   //localhost:8080/admin/users
-const deleteUser = async(id)=>{
-  try {
-    const response = await fetch(
-      `http://localhost:8080/admin/users/delete/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: authenticatedToken,
-        },
+  const deleteUser = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/admin/users/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authenticatedToken,
+          },
+        }
+      );
+      if (response.ok) {
+        const resResult = `user ${id} deleted`;
+        alert(resResult);
+        const rawMessage = await response.json();
+        const message = rawMessage.message;
+        console.log(message);
+        getAllTheUsersData();
+      } else {
+        alert("error occured");
       }
-    );
-    if(response.ok){
-      // const resResult = `user ${id} deleted`;
-      // alert(resResult)
-      // const rawMessage = await response.json()
-      // const message = rawMessage.message
-      // alert(message)
-      getAllTheUsersData();
-    }else{
-    alert("error occured");
-
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-console.log(error)
-  }
-}
+  };
   const tableStyles = {
     theadTd: "px-2 py-1 text-lg text-gray-900 bg-gray-200 border border-black",
     theadtr: "py-1 px-2 bg-gray-50 border border-black text-gray-600",
@@ -69,9 +68,7 @@ console.log(error)
         </h1>
         <table className="mx-auto my-20">
           <thead>
-            <button onClick={setNav} className="text-black">
-              Navbar
-            </button>
+        
 
             <tr>
               <td className={tableStyles.theadTd}>Id</td>
@@ -102,9 +99,9 @@ console.log(error)
                 <td
                   className={` bg-green-100 text-green-600 ${tableStyles.theadtr}`}
                 >
-                  <Link
-                    href={`http://localhost:3000/admin/edit/${curEle._id}`}
-                  >Edit</Link>
+                  <Link href={`http://localhost:3000/admin/edit/${curEle._id}`}>
+                    Edit
+                  </Link>
                 </td>
                 <td
                   onClick={() => {

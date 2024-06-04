@@ -1,27 +1,29 @@
 "use client";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import img from "./homeImg.png";
 import Image from "next/image";
 import { useAuth } from "./store/auth";
 export default function Home() {
-  const homeTextChild = "m-3 md:m-5";
-const { user, authenticatedToken } = useAuth();
+  const homeTextChild = "";
+  const { user, authenticatedToken } = useAuth();
+
   return (
     <>
-      <div className=" w-screen h-screen flex justify-between flex-col text-black ">
-        <div className=" flex w-11/12 mx-auto flex-col items-start content-center py-20  md:flex-row ">
-          <div className="homeText w-5/6 flex flex-col items-start  content-start">
+      <div className="   mx-auto w-full mt-10 lg:w-11/12   h-screen flex justify-between flex-col text-black ">
+        <div className="flex gap-4   mx-auto flex-col items-start    md:flex-row ">
+          <div className="flex mx-auto gap-4 flex-col items-start justify-start">
             <h1
-              className={`${homeTextChild} text-2xl font-bold tracking-wide py-3 md:text-4xl`}
+             
+             className={`${homeTextChild} text-2xl font-bold tracking-wide py-3 md:text-4xl`}
             >
               Welcome to <span className="underline">Interviewer-Student</span>{" "}
               Placement Platform.
             </h1>
-            <p className={`${homeTextChild} text-xl md:text-2xl`}>
+            <p className={`${homeTextChild} text-lg  `}>
               Discover tailored profiles and resources for <br /> streamlined
               recruitment.
             </p>
-            <p className={`${homeTextChild} text-xl md:text-2xl`}>
+            <p  className={`${homeTextChild} text-lg`}>
               Elevate your placement process.
             </p>
           </div>

@@ -9,12 +9,12 @@ export default function LogoutUser() {
   const { logoutUser, setIsLoggedIn } = useAuth();
   useEffect(() => {
     logoutUser();
-    setIsLoggedIn(false)
+    setIsLoggedIn(false);
   }, []);
   return (
     <>
-      <div className="h-full pt-20 flex flex-col bg-slate-100">
-        <div className="flex w-2/3  mx-auto justify-start">
+      <div className="h-full pt-10 flex flex-col bg-slate-100">
+        <div className="flex flex-col   md:flex-row  mx-auto justify-start">
           <div className=" ml-5 w-fit mr-10">
             <h1 className="text-4xl text-gray-950 mb-5 ">Hmm...</h1>
             <h3 className="text-lg text-gray-900">
@@ -25,15 +25,15 @@ export default function LogoutUser() {
             </h2>
             <button className="w-fit mx-auto my-10 py-1  px-4 text-black border border-black rounded-xl hover:bg-black hover:text-white">
               <Link href="../login" className="">
-Login              </Link>
+                Login{" "}
+              </Link>
             </button>
           </div>
           <Image
             src={logOutImg}
-            width={350}
-            height={350}
+            
             alt="logout"
-            className="ml-20"
+            className="  m-10 md:ml-20"
           />
         </div>
       </div>

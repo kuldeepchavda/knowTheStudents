@@ -1,6 +1,5 @@
 "use client";
 import { useAuth } from "@/app/store/auth";
-import { useEffect, useState } from "react";
 
 export default function AdminContactData() {
   const { contacts } = useAuth();
@@ -20,6 +19,7 @@ export default function AdminContactData() {
             <th className={tableStyles.headTd}>Id</th>
             <th className={tableStyles.headTd}>Email</th>
             <th className={tableStyles.headTd}>Message</th>
+            <th className={tableStyles.headTd}>Reply</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +29,7 @@ export default function AdminContactData() {
               <td className={tableStyles.tbodyTd}>{curEle._id}</td>
               <td className={tableStyles.tbodyTd}>{curEle.email}</td>
               <td className={tableStyles.tbodyTd}>{curEle.message}</td>
+              <td className={tableStyles.tbodyTd}><a href={`mailto:${curEle.email}`}>-</a></td>
             </tr>
           ))}
         </tbody>

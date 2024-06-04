@@ -6,7 +6,7 @@ import "./globals.css";
 // import { counterContext } from "@/store/auth";
 import { AuthProvider } from "./store/auth.jsx";
 import Navbar from "@/components/NavBar/NavBar";
-import Footer from "@/components/Footer/Footer";
+import Footer1 from "@/components/footer4/page";
 const inter = Inter({ subsets: ["latin"] });
 const metadata = {
   title: "Create Next App",
@@ -17,11 +17,18 @@ export default function RootLayout({ children }) {
   return (
     <AuthProvider>
       <html lang="en">
+        <head>
+          <link
+            rel="stylesheet"
+            href="https://unpkg.com/aos@next/dist/aos.css"
+          />
+        </head>
         <body className={`${inter.className} `}>
-         
           <Navbar />
           {children}
-          <Footer />
+          <Footer1 />
+          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+          <script>AOS.init();</script>
         </body>
       </html>
     </AuthProvider>

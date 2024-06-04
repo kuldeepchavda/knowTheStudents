@@ -1,0 +1,49 @@
+1. Mechatronics Engineering
+
+2. Computer Science Engineering
+   - Data Scientists
+   - Computer Programmers
+   - Systems Analysts
+   - Hardware Engineers
+   - Software Developers
+   - System Engineers
+   - IT Consultants
+   - System Designers
+   - Networking Engineers
+   - Web Developers
+   - Database Administrators
+   - Mobility Testers
+   - E-commerce Specialists
+   - Software Testers
+
+3. Civil Engineering
+
+4. Mechanical Engineering
+
+5. Electronics and Communications Engineering (ECE)
+   - Analog Transmission
+   - Basic Electronics
+   - Microprocessors
+   - Solid-state Devices
+   - Digital and Analog Communication
+   - Satellite Communication
+   - Antennae
+   - Wave Progression
+
+6. Electrical Engineering
+   - Electromagnetism for Energy Transmission
+   - Generation
+   - Storage
+   - Processing
+   - Control
+   - Conversion, etc.
+
+7. Aerospace Engineering
+
+8. Chemical Engineering
+
+9. Marine Engineering
+
+10. Automobile Engineering
+
+11. Software Engineering

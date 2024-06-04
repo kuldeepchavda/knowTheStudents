@@ -37,6 +37,7 @@ export default function Login() {
         const token = responseData.token;
         localStorage.setItem("token", `${token}`);
         setIsLoggedIn(true);
+        userAuthentication()
   
       }
     } catch (err) {

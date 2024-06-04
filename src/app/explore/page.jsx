@@ -26,43 +26,55 @@ export default function explore() {
       console.log(error);
     }
   };
+  
   useEffect(() => {
     getData();
     console.log(users);
   }, []);
   return (
     <>
-      <div className="flex flex-col  justify-between items-between">
-        <h1 className=" w-fit mx-auto my-5 text-3xl font-normal">
-          Explore People
-        </h1>
-        {/* <div className=""> */}
-        <ul>
-          {users
-            ? users.map((curEle, index) => (
-                <>
-                  <li className="  ">
-                    <div className="flex mx-auto w-4/5 h-20  bg-slate-100 hover:bg-slate-200 rounded-xl mb-4 justify-between items-center">
-                      <div className=" ml-6   flex  justify-between  ">
-                        <h4 className="ml-2 mr-5 flex justify-center items-center text-lg">
-                          {index + 1}
-                        </h4>
-                        <div className="">
-                          <h3 className="">
-                            {curEle.firstname} {curEle.lastname}
-                          </h3>
-                          <h4 className="text-xs">@{curEle.username}</h4>
+      <div className=" w-full ">
+        <div className="flex flex-col w-11/12  mx-auto justify-between items-between">
+          <h1 className=" w-fit mx-auto my-5 text-3xl font-normal">
+            Explore People
+          </h1>
+          {/* <div className=""> */}
+          <ul>
+            {users
+              ? users.map((curEle, index) => (
+                  <>
+                    <li className="  " key={index}>
+                      <div className="flex mx-auto w-4/5 h-20  bg-slate-100 hover:bg-slate-200 rounded-xl mb-4 justify-between items-center">
+                        <div className=" ml-6   flex  justify-between items-center  ">
+                          {users && (
+                            <img
+                              src={`http://localhost:8080/Images/${curEle.image}`}
+                              alt="profile"
+                              className="h-14 rounded-full m-4"
+                            />
+                          )}
+                          <div className="">
+                            <h3 className="">
+                              {curEle.firstname} {curEle.lastname}
+                            </h3>
+                            <h4 className="text-xs">@{curEle.username}</h4>
+                          </div>
+                        </div>
+                        <div className=" text-lg cursor-pointer mr-24  text-gray-600 font-semibold hover:text-black">
+                          <Link
+                            href={`/explore/${curEle._id}`}
+                            className="h-full w-full  py-2 px-4"
+                          >
+                            explore
+                          </Link>
                         </div>
                       </div>
-                      <div className=" text-lg cursor-pointer mr-24  text-gray-600 font-semibold hover:text-black">
-                      <Link href={`/explore/${curEle._id}`} className="h-full w-full  py-2 px-4">explore</Link>
-                      </div>
-                    </div>
-                  </li>
-                </>
-              ))
-            : "not found"}
-        </ul>
+                    </li>
+                  </>
+                ))
+              : "not found"}
+          </ul>
+        </div>
       </div>
       {/* </div> */}
     </>
